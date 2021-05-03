@@ -1,0 +1,77 @@
+// Media
+// break points
+$break-point-375: 375px;
+$break-point-576: 576px;
+$break-point-768: 768px;
+$break-point-992: 992px;
+$break-point-1024: 1024px;
+$break-point-1200: 1200px;
+$break-point-1328: 1328px;
+$break-point-1440: 1440px;
+$break-point-1600: 1600px;
+$media-screen-mobile-small: '(max-width: #{$break-point-375 - 1})';
+$media-screen-mobile-normal: '(max-width: #{$break-point-576 - 1})';
+$media-screen-mobile: '(max-width: #{$break-point-768 - 1})';
+$media-screen-tablet: '(min-width: #{$break-point-768}) and (max-width: #{$break-point-992 - 1})';
+$media-screen-desktop: '(min-width: #{$break-point-992}) and (max-width: #{$break-point-1200 - 1})';
+$media-not-desktop: '(max-width: #{$break-point-992 - 1})';
+$media-screen-tablet-desktop: '(min-width: #{$break-point-768}) and (max-width: #{$break-point-1200 - 1})';
+$media-small-desktop: '(min-width: #{$break-point-1200 + 1})';
+$media-large-desktop: '(min-width: #{$break-point-1328})';
+
+$media-xs: '(min-width: #{$break-point-576 - 1})';
+$media-sm: '(min-width: #{$break-point-576})';
+$media-md: '(min-width: #{$break-point-768})';
+$media-lg: '(min-width: #{$break-point-992})';
+$media-xl: '(min-width: #{$break-point-1024})';
+$media-xxl: '(min-width: #{$break-point-1200})';
+$media-xxxl: '(min-width:#{$break-point-1440})';
+
+$media-max-sm: '(max-width: #{$break-point-768 - 1})';
+$media-max-md: '(max-width: #{$break-point-992 - 1})';
+$media-max-xl: '(max-width: #{$break-point-1200 - 1})';
+$media-max-xxl: '(max-width:#{$break-point-1440 - 1})';
+$media-max-xxxl: '(max-width:#{$break-point-1600 - 1})';
+
+
+$media-mobile : '( max-width: 768px )';
+
+$grid-gutter-width: 30px;
+
+.container {
+  max-width: 1650px;
+  width: 86%;
+  margin: 0 auto;
+  padding-left: $grid-gutter-width / 2;
+  padding-right: $grid-gutter-width / 2;
+
+  @media #{$media-max-xxxl} {
+    width: calc(100% - 80px);
+  }
+
+  @media #{$media-max-xxl} {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+
+// Font Size
+$font-base: 14px;
+$font-base-title: 24px;
+
+// Spacing
+
+$grid-gutter-width : 30px;
+
+// Set Container
+
+// Container
+
+
+$timing: 0.35s;
+$w-thumb-img: 100px;
+$w-thumb-img-mb: 75px;
+
+$transition: .5s;
