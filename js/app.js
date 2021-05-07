@@ -1,28 +1,43 @@
 $(function () {
     const $wrapperSlider = $('.js-wrapper-slider');
+    const $filterBox = $('.js-wrapper-filter');
+    const $categoryBox = $('.js-wrapper-categorys');
 
-    // Slider
+    $wrapperSlider.listProduct();
+    $filterBox.FilterBox();
+    $categoryBox.categoryBox();
 
-    $wrapperSlider.slick({
-        slidesToScroll: 1,
-        iinfinite: true,
-        variableWidth: true
+    $filterBox.on('product-filter-change', function (event, data) {
+        $wrapperSlider.listProduct('unSlick');
+        callApiListing(data);
     });
 
-    $(window).resize(hanldeChageOptionSlide);
+    $categoryBox.on('product-category-change', function (event, data) {
+        $wrapperSlider.listProduct('unSlick');
+        callApiListing(data);
+    });
 
-    function hanldeChageOptionSlide() {
-        let w = $wrapperSlider.width();
-        let slideToShow = Math.floor(w / 360);
+    function callApiListing(param) {
+        const url = 'http://localhost:5500/get-data';
 
-        let slides = $wrapperSlider.slick('slickGetOption', 'slidesToShow');
+        const gender = $filterBox.FilterBox('getStatusGender');
+        const requestData = {
+            gender: gender,
+            title: '',
+            category:'',
+            ...param
+        }
 
-        $wrapperSlider.slick('slickSetOption', 'slidesToShow', slideToShow, true);
+        window.ApiCaller.callApi(url, 'POST', requestData, handleCallApiSucces, handleCallApiFail);
     }
 
-    hanldeChageOptionSlide();
+    function handleCallApiSucces(res) {
+        $wrapperSlider.listProduct('render', res.items);
+    }
 
-    // Pagination
+    function handleCallApiFail(err) {
+        console.error('Call Api Error', err);
+    }
 
-    
-})
+    callApiListing();
+});

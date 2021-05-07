@@ -33,17 +33,17 @@
             <span>Store</span>
           </div>
         </h4>
-        <ul class="list-category">
+        <ul class="list-category js-wrapper-categorys">
           <li>
-            <a href="#">
+            <a href="#" class="js-category-item" data-category="hat">
               <span class="img">
                 <img src="./image/category/cap.png" alt="">
               </span>
-              <span>New in</span>
+              <span>Hat</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="js-category-item" data-category="clothing">
               <span class="img">
                 <img src="./image/category/001-tshirt.png" alt="">
               </span>
@@ -51,7 +51,7 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="js-category-item" data-category="shoes">
               <span class="img">
                 <img src="./image/category/006-shoes.png" alt="">
               </span>
@@ -59,15 +59,15 @@
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="js-category-item" data-category="shorts">
               <span class="img">
-                <img src="./image/category/004-pamela-hat.png" alt="">
+                <img src="./image/category/shorts.png" alt="">
               </span>
-              <span>Accesories</span>
+              <span>Shorts</span>
             </a>
           </li>
           <li>
-            <a href="#">
+            <a href="#" class="js-category-item" data-category="outlet">
               <span class="img">
                 <img src="./image/category/008-handbag-1.png" alt="">
               </span>
@@ -86,21 +86,26 @@
         </div>
       </div>
       <div class="wrapper__content">
-        <div class="wrapper__navbar">
-          <div class="box-sex">
+        <div class="wrapper__navbar js-wrapper-filter">
+          <div class="box-sex js-choose-gender">
             <span><img src="./image/category/female.png" alt="Female"></span>
-            <input type="checkbox" id="switch" />
-            <label for="switch"></label>
+            <input type="checkbox" id="switch" checked />
+            <label for="switch">
+            </label>
             <span><img src="./image/category/man.png" alt="male"></span>
           </div>
           <div class="box-search">
-            <input type="text" placeholder="Search">
+            <input type="text" placeholder="Search" class="js-search-title">
           </div>
           <div class="box-setting">
-            <span>
+            <span class="heart-box">
+              <i class="fa fa-heart" aria-hidden="true"></i>
+              <small>3</small>
+            </span>
+            <span class="avatar">
               <img src="./image/a1.PNG" alt="">
             </span>
-            <span id="dropdownSettting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span class="dropdown-popup" id="dropdownSettting" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-cog" aria-hidden="true"></i>
             </span>
             <div class="dropdown-menu dropdown-menu-right dropdown-setting" aria-labelledby="dropdownSettting">
@@ -123,83 +128,7 @@
         </div>
         <div class="wrapper__body">
           <div class="wrapper__intro-slider">
-            <div class="wrapper__slider js-wrapper-slider">
-              <div class="slide-item">
-                <div class="sale">
-                  <span class="old">20$</span>
-                  <span class="new">15$</span>
-                </div>
-                <img src="./image/somi-1.png" alt="">
-                <div class="interactive">
-                  <a href="#">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  </a>
-                </div>
-                <div class="size">
-                  <form action="#">
-                    <p>
-                      <input type="radio" id="test1" name="radio-group" checked>
-                      <label for="test1">S</label>
-                    </p>
-                    <p>
-                      <input type="radio" id="test2" name="radio-group">
-                      <label for="test2">M</label>
-                    </p>
-                    <p>
-                      <input type="radio" id="test3" name="radio-group">
-                      <label for="test3">L</label>
-                    </p>
-                  </form>
-                </div>
-                <!-- <span class="fa fa-heart test"></span> -->
-              </div>
-              <div class="slide-item">
-                <div class="sale">
-                  <span class="old">20$</span>
-                  <span class="new">15$</span>
-                </div>
-                <img src="./image/somi-2.png" alt="">
-                <div class="interactive">
-                  <a href="#">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="slide-item">
-                <div class="sale">
-                  <span class="old">20$</span>
-                  <span class="new">15$</span>
-                </div>
-                <img src="./image/somi-3.png" alt="">
-                <div class="interactive">
-                  <a href="#">
-                    <i class="fa fa-heart" aria-hidden="true"></i>
-                  </a>
-                  <a href="#">
-                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                  </a>
-                </div>
-              </div>
-              <div class="slide-item">
-                <div class="sale">
-                  <span class="old">20$</span>
-                  <span class="new">15$</span>
-                </div>
-                <img src="./image/somi-4.png" alt="">
-              </div>
-              <div class="slide-item">
-                <div class="sale">
-                  <span class="old">20$</span>
-                  <span class="new">15$</span>
-                </div>
-                <img src="./image/somi-5.png" alt="">
-              </div>
+            <div class="wrapper__slider js-wrapper-slider"> 
             </div>
           </div>
           <div class="wrapper__intro-list">
@@ -345,6 +274,10 @@
     integrity="sha512-XtmMtDEcNz2j7ekrtHvOVR4iwwaD6o/FUJe6+Zq+HgcCsk3kj4uSQQR8weQ2QVj1o0Pk6PwYLohm206ZzNfubg=="
     crossorigin="anonymous"></script>
   <script src="js/paging.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/filterBox.js"></script>
+  <script src="js/list.js"></script>
+  <script src="js/category.js"></script>
   <script src="js/app.js"></script>
 </body>
 

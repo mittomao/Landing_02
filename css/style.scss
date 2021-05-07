@@ -220,7 +220,7 @@ body {
                         transition: $transition;
                     }
 
-                    &:hover {
+                    &:hover, &.active {
                         span {
                             color: #ff9f1a;
 
@@ -233,27 +233,27 @@ body {
 
                 &:nth-child(1) {
                     span.img {
-                        background-image: $bg-transperent-4;
+                        background-image: $bg-transperent-6;
                     }
                 }
                 &:nth-child(2) {
                     span.img {
-                        background-image: $bg-transperent-5;
+                        background-image: $bg-transperent-7;
                     }
                 }
                 &:nth-child(3) {
                     span.img {
-                        background-image: $bg-transperent-6;
+                        background-image: $bg-transperent-8;
                     }
                 }
                 &:nth-child(4) {
                     span.img {
-                        background-image: $bg-transperent-7;
+                        background-image: $bg-transperent-9;
                     }
                 }
                 &:nth-child(5) {
                     span.img {
-                        background-image: $bg-transperent-8;
+                        background-image: $bg-transperent-10;
                     }
                 }
             }
@@ -390,36 +390,68 @@ body {
             & > span {
                 width: 50px;
                 height: 50px;
+            }
 
-                &:nth-child(1) {
-                    margin-right: 10px;
-                    background: $bg-transperent-6;
-                    padding: 5px;
-                    display: block;
-                    border-radius: 50%;
+            &  span.heart-box {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+                margin-right: 10px;
+                position: relative;
 
-                    img {
-                        width: 100%;
-                        height: 100%;
-                        object-fit: cover;
-                    }
+                i {
+                    font-size: 24px;
+                    color: #ff3838;
+                    position: relative;
                 }
 
-                &:nth-child(2) {
-                    background-color: #fafafd;
+                small {
+                    position: absolute;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    top: -5px;
+                    font-size: 12px;
+                    font-weight: bold;
+                    width: 20px;
+                    height: 20px;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    border-radius: 15px;
+                    border: 1px solid #ddd;
+                    border-radius: 100%;
+                }
+            }
 
-                    i.fa {
-                        font-size: 20px;
-                        color: $color-primary;
-                    }
+            &  span.avatar {
+                margin-right: 10px;
+                background: $bg-transperent-6;
+                padding: 5px;
+                display: block;
+                border-radius: 50%;
 
-                    &:hover {
-                        background-color: #dcdcee;
-                    }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                }
+            }
+
+            & span.dropdown-popup {
+                background-color: #fafafd;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 15px;
+
+                i.fa {
+                    font-size: 20px;
+                    color: $color-primary;
+                }
+
+                &:hover {
+                    background-color: #dcdcee;
                 }
             }
 
@@ -507,6 +539,36 @@ body {
             margin-right: 15px;
             background: $bg-transperent-1;
 
+            &--clothing {
+                background: $bg-transperent-1;
+            }
+
+            &--shorts {
+                background: $bg-transperent-2;
+            }
+
+            &--hat {
+                background: $bg-transperent-3;
+            }
+
+            &--outlet {
+                background: $bg-transperent-4;
+            }
+
+            &--shoes {
+                background: $bg-transperent-5;
+            }
+
+            h5.title {
+                position: absolute;
+                top: -15px;
+                left: 50%;
+                transform: translateX(-50%);
+                color: 14px;
+                font-weight: 600;
+                transition: $transition;
+            }
+
             &:not(.slick-active) {
                 opacity: 0.2;
             }
@@ -538,6 +600,8 @@ body {
 
             img {
                 width: 100%;
+                object-fit: cover;
+                -webkit-transition: width 2s,-webkit-transform 2s;
             }
 
             .interactive {
@@ -559,6 +623,7 @@ body {
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
+                    transition: $transition;
 
                     & i {
                         transition: $transition;
@@ -574,6 +639,14 @@ body {
 
                     &:hover i {
                         transform: scale(1.2);
+                    }
+
+                    &:nth-child(1) {
+                        transform: translateX(-100px);
+                    }
+
+                    &:nth-child(2) {
+                        transform: translateX(100px);
                     }
 
                     &:nth-child(1):hover {
@@ -658,16 +731,28 @@ body {
             }
 
             &:hover {
+                h5.title {
+                    top: 15px;
+                }
+
                 .interactive {
                     bottom: 20px;
                     visibility: visible;
                     opacity: 1;
+
+                    a {
+                        transform: translateX(0);
+                    }
                 }
 
                 .size {
                     right: 15px;
                     visibility: visible;
                     opacity: 1;
+                }
+
+                img {
+                    transform: rotateY(360deg);
                 }
             }
 
@@ -677,7 +762,7 @@ body {
                 left: 50%;
                 transform: translate(-50%, -50%);
                 color: #ff3838;
-                animation: scaleOut 2s ease-in;
+                animation: scaleOut 1s ease-in-out;
             }
         }
     }
