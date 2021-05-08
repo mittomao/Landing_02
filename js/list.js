@@ -18,6 +18,10 @@
     }
 }(window, function ($) {
 
+    const EVENTNAME = {
+        getIdProductHeart: 'get-id-product-heart',
+      }
+
     function ListProduct($el, options) {
         const _self = this;
         _self.$el = $($el);
@@ -29,7 +33,7 @@
             const _self = this;
 
             const temple = data.reduce((str, item, i) => {
-                str += `<div class="slide-item slide-item--${item.category}">
+                str += `<div class="slide-item js-slide-item slide-item--${item.category}" data-id = "${item.id}">
                             <div class="sale">
                                 <span class="old">${item.price.old}$</span>
                                 <span class="new">${item.price.new}$</span>
@@ -62,14 +66,21 @@
             hanldeChageOptionSlide();
 
             const $buttonHearts = _self.$el.find('.js-button-heart');
+            const $listSlides = _self.$el.find('.js-slide-item');
 
             $buttonHearts.on('click', function (e) { 
                 e.preventDefault();
 
-                $(this).closest('.slide-item').append('<span class="fa fa-heart test"></span>');
+                const $slideItem = $(this).closest('.slide-item');
+
+                $slideItem.append('<span class="fa fa-heart test"></span>');
+
+                let idProduct = $slideItem.data('id');
+
+                _self.$el.trigger(EVENTNAME.getIdProductHeart, { idProduct: idProduct });
 
                 setTimeout(() => {
-                    $(this).closest('.slide-item').find('span.test').remove();
+                    $slideItem.find('span.test').remove();
                 }, 1000);
             });
            

@@ -46,6 +46,7 @@
                 status: 200,
                 items: [
                     {
+                        id: 'cloth-1',
                         title: 'Áo thun',
                         image: 'somi-1.png',
                         price: {
@@ -56,6 +57,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'cloth-2',
                         title: 'Áo phông',
                         image: 'somi-2.png',
                         price: {
@@ -66,6 +68,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'cloth-3',
                         title: 'Thun trơn',
                         image: 'somi-3.png',
                         price: {
@@ -76,6 +79,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'cloth-4',
                         title: 'Thun trơn',
                         image: 'somi-4.png',
                         price: {
@@ -86,6 +90,7 @@
                         gender: 'female'
                     },
                     {
+                        id: 'cloth-5',
                         title: 'Thun trơn',
                         image: 'somi-5.png',
                         price: {
@@ -96,6 +101,7 @@
                         gender: 'female'
                     },
                     {
+                        id: 'short-1',
                         title: 'Sóc ngắn',
                         image: 'quan-1.png',
                         price: {
@@ -106,6 +112,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'short-2',
                         title: 'Bò lửng',
                         image: 'quan-2.png',
                         price: {
@@ -116,6 +123,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'short-3',
                         title: 'Quần đùi',
                         image: 'quan-3.png',
                         price: {
@@ -126,6 +134,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'short-4',
                         title: 'Kaki chun',
                         image: 'quan-4.png',
                         price: {
@@ -136,6 +145,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'short-5',
                         title: 'Quần caro',
                         image: 'quan-5.png',
                         price: {
@@ -146,6 +156,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'hat-1',
                         title: 'Lưỡi trai',
                         image: 'mu-1.png',
                         price: {
@@ -156,6 +167,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'hat-2',
                         title: 'Mũ bò',
                         image: 'mu-2.png',
                         price: {
@@ -166,6 +178,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'hat-3',
                         title: 'Nón sơn',
                         image: 'mu-3.png',
                         price: {
@@ -176,6 +189,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'outlet-1',
                         title: 'Buberly',
                         image: 'tui-1.png',
                         price: {
@@ -186,6 +200,7 @@
                         gender: 'female'
                     },
                     {
+                        id: 'outlet-2',
                         title: 'Chanel',
                         image: 'tui-2.png',
                         price: {
@@ -196,6 +211,7 @@
                         gender: 'female'
                     },
                     {
+                        id: 'outlet-3',
                         title: 'Uk',
                         image: 'tui-3.png',
                         price: {
@@ -206,6 +222,7 @@
                         gender: 'female'
                     },
                     {
+                        id: 'shoes-1',
                         title: 'Sneaker',
                         image: 'giay-1.png',
                         price: {
@@ -216,6 +233,7 @@
                         gender: 'man'
                     },
                     {
+                        id: 'shoes-2',
                         title: 'Jordan',
                         image: 'giay-2.png',
                         price: {
@@ -226,6 +244,7 @@
                         gender: 'female'
                     },
                     {
+                        id: 'shoes-3',
                         title: 'Balenciaga',
                         image: 'giay-3.png',
                         price: {
@@ -240,21 +259,19 @@
 
             console.log('Param', param);
 
-            let property, rs;
+            let rs;
 
             if (param === undefined) {
                 return result;
 
             } else {
-                property = Object.entries(param)[0];
 
-                if (property[0] === 'gender') {
-                    let g = property[1] ? 'man' : 'female';
-                   
-                    rs = result.items.filter( (item, i) => {
-                        return item.gender === g;
-                    });
-                }
+               
+                let g = param.gender ? 'man' : 'female';
+                
+                rs = result.items.filter( (item, i) => {
+                    return item.gender === g;
+                });
 
                 
                 if (param.title) {
@@ -269,11 +286,11 @@
                     });
                 }
                 
-                // else {
-                //     rs = result.items.filter( (item, i) => {
-                //         return item[property[0]].indexOf(property[1]) !==-1;
-                //     });
-                // }
+                if (param.category) {
+                    rs = result.items.filter( (item, i) => {
+                        return item.category.indexOf(param.category) !==-1;
+                    });
+                }
 
                 console.log(rs);
                 

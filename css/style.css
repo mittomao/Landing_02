@@ -371,9 +371,16 @@ body {
   display: flex;
   align-items: center;
 }
-.wrapper__navbar .box-setting > span {
+.wrapper__navbar .box-setting > div {
   width: 50px;
   height: 50px;
+}
+.wrapper__navbar .box-setting > div:not(:last-child) {
+  margin-right: 15px;
+}
+.wrapper__navbar .box-setting > div span {
+  width: 100%;
+  height: 100%;
 }
 .wrapper__navbar .box-setting span.heart-box {
   cursor: pointer;
@@ -386,14 +393,13 @@ body {
 }
 .wrapper__navbar .box-setting span.heart-box i {
   font-size: 24px;
-  color: #ff3838;
+  color: #ff3838 !important;
   position: relative;
 }
 .wrapper__navbar .box-setting span.heart-box small {
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -5px;
+  right: -10px;
+  top: -10px;
   font-size: 12px;
   font-weight: bold;
   width: 20px;
@@ -430,11 +436,11 @@ body {
 .wrapper__navbar .box-setting span.dropdown-popup:hover {
   background-color: #dcdcee;
 }
-.wrapper__navbar .box-setting .dropdown-setting {
+.wrapper__navbar .box-setting .dropdown-setting, .wrapper__navbar .box-setting .dropdown-heart {
   margin-top: 20px;
   position: relative;
 }
-.wrapper__navbar .box-setting .dropdown-setting::before {
+.wrapper__navbar .box-setting .dropdown-setting::before, .wrapper__navbar .box-setting .dropdown-heart::before {
   content: "";
   position: absolute;
   top: -7px;
@@ -446,17 +452,65 @@ body {
   border-top: 1px solid #ddd;
   transform: rotate(45deg);
 }
-.wrapper__navbar .box-setting .dropdown-setting.show {
+.wrapper__navbar .box-setting .dropdown-setting.show, .wrapper__navbar .box-setting .dropdown-heart.show {
   animation: backInUp 0.5s ease-in-out;
 }
-.wrapper__navbar .box-setting .dropdown-setting .dropdown-item {
+.wrapper__navbar .box-setting .dropdown-setting .dropdown-item, .wrapper__navbar .box-setting .dropdown-heart .dropdown-item {
   line-height: 36px;
 }
-.wrapper__navbar .box-setting .dropdown-setting .dropdown-item i.fa {
+.wrapper__navbar .box-setting .dropdown-setting .dropdown-item i.fa, .wrapper__navbar .box-setting .dropdown-heart .dropdown-item i.fa {
   margin-right: 5px;
 }
-.wrapper__navbar .box-setting .dropdown-setting .dropdown-item:hover {
+.wrapper__navbar .box-setting .dropdown-setting .dropdown-item:hover, .wrapper__navbar .box-setting .dropdown-heart .dropdown-item:hover {
   color: #ff9f1a;
+}
+.wrapper__navbar .box-setting .dropdown-heart {
+  min-width: 300px;
+  padding: 15px;
+}
+.wrapper__navbar .box-setting .heart-item {
+  width: 100%;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+}
+.wrapper__navbar .box-setting .heart-item:not(:last-child) {
+  border-bottom: 1px solid #ddd;
+}
+.wrapper__navbar .box-setting .heart-item__img {
+  width: 50px;
+}
+.wrapper__navbar .box-setting .heart-item__img img {
+  width: 100%;
+  object-fit: cover;
+}
+.wrapper__navbar .box-setting .heart-item__title {
+  font-weight: 600;
+  margin-left: 5px;
+  color: #ff9f1a;
+}
+.wrapper__navbar .box-setting .heart-item__price {
+  margin-left: auto;
+}
+.wrapper__navbar .box-setting .heart-item__cls {
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.wrapper__navbar .box-setting .heart-item__cls i {
+  color: red;
+}
+.wrapper__navbar .box-setting .heart-item__cls:hover {
+  background: red;
+}
+.wrapper__navbar .box-setting .heart-item__cls:hover i {
+  color: #ffffff;
 }
 .wrapper__body {
   padding: 50px 60px;

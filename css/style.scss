@@ -387,9 +387,18 @@ body {
             display: flex;
             align-items: center;
 
-            & > span {
+            & > div {
                 width: 50px;
                 height: 50px;
+
+                &:not(:last-child) {
+                    margin-right: 15px;
+                }
+
+                & span {
+                    width: 100%;
+                    height: 100%;
+                }
             }
 
             &  span.heart-box {
@@ -403,15 +412,14 @@ body {
 
                 i {
                     font-size: 24px;
-                    color: #ff3838;
+                    color: #ff3838 !important;
                     position: relative;
                 }
 
                 small {
                     position: absolute;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    top: -5px;
+                    right: -10px;
+                    top: -10px;
                     font-size: 12px;
                     font-weight: bold;
                     width: 20px;
@@ -455,7 +463,7 @@ body {
                 }
             }
 
-            .dropdown-setting {
+            .dropdown-setting, .dropdown-heart{
                 margin-top: 20px;
                 position: relative;
 
@@ -485,6 +493,65 @@ body {
 
                     &:hover {
                         color: $color-hover;
+                    }
+                }
+            }
+
+            .dropdown-heart {
+                min-width: 300px;
+                padding: $grid-gutter-width / 2;
+            }
+
+            .heart-item {
+                width: 100%;
+                padding: $grid-gutter-width / 2 0;
+                display: flex;
+                align-items: center;
+                
+                &:not(:last-child) {
+                    border-bottom: 1px solid #ddd;
+                }
+
+                &__img {
+                    width: 50px;
+                    
+                    img {
+                        width: 100%;
+                        object-fit: cover;
+                    }
+                }
+
+                &__title {
+                    font-weight: 600;
+                    margin-left: 5px;
+                    color: $color-hover;
+                }
+
+                &__price {
+                    margin-left: auto;
+                }
+
+                &__cls {
+                    width: 25px;
+                    height: 25px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    border: 1px solid #ddd;
+                    margin-left: 10px;
+                    cursor: pointer;
+
+                    i {
+                        color: red;
+                    }
+
+                    &:hover {
+                        background: red;
+
+                        i {
+                            color: $color-white;
+                        }
                     }
                 }
             }
