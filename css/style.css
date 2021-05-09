@@ -467,6 +467,21 @@ body {
 .wrapper__navbar .box-setting .dropdown-heart {
   min-width: 300px;
   padding: 15px;
+  max-height: 350px;
+  overflow-y: scroll;
+}
+.wrapper__navbar .box-setting .dropdown-heart::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+  border-radius: 10px;
+}
+.wrapper__navbar .box-setting .dropdown-heart::-webkit-scrollbar {
+  width: 3px;
+  background-color: #f5f5f5;
+}
+.wrapper__navbar .box-setting .dropdown-heart::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #7a99d9), color-stop(0.72, #497dbd), color-stop(0.86, #1c3a94));
 }
 .wrapper__navbar .box-setting .heart-item {
   width: 100%;
@@ -762,6 +777,7 @@ body {
 }
 .wrapper__our-aricle .aricle-tab .nav-item a.active {
   color: #ff9f1a;
+  font-weight: 600;
 }
 .wrapper__our-aricle .aricle-content {
   width: 100%;
@@ -798,17 +814,25 @@ body {
 }
 .wrapper__our-aricle .aricle-text h5 {
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
+}
+.wrapper__our-aricle .aricle-text .date {
+  color: #aaa;
+  font-size: 12px;
   margin-bottom: 12px;
 }
-.wrapper__our-aricle .aricle-text > div {
+.wrapper__our-aricle .aricle-text .desc {
   overflow: hidden;
   text-overflow: ellipsis;
   line-height: 20px;
   -webkit-line-clamp: 1;
   display: -webkit-box;
   -webkit-box-orient: vertical;
+  font-size: 14px;
+}
+.wrapper__our-aricle .aricle-text:hover h5 {
+  color: #ff9f1a;
 }
 .wrapper__lasted-order {
   flex: 1 1 auto;

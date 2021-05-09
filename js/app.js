@@ -2,14 +2,17 @@ $(function () {
     const $wrapperSlider = $('.js-wrapper-slider');
     const $filterBox = $('.js-wrapper-filter');
     const $categoryBox = $('.js-wrapper-categorys');
-    let arrId = [];
+    const $aricle = $('.js-aricle');
     let state = {
-        items: []
+        arrId: [],
+        items: [],
+        isInitarticle : false
     }
 
     $wrapperSlider.listProduct();
     $filterBox.FilterBox();
     $categoryBox.categoryBox();
+    $aricle.ListArchive();
 
     $( "[data-toggle='dropdown']" ).dropdown();
 
@@ -24,13 +27,25 @@ $(function () {
     });
 
     $wrapperSlider.on('get-id-product-heart', function (event, data) {
-        arrId.push(data.idProduct);
-        let dataFilter  = state.items.filter( (item, i) => {
-            return arrId.indexOf(item.id) !== -1;
-        });
+        state.arrId.push(data.idProduct);
+        let dataFilter  = filterData(state.items);
 
         $filterBox.FilterBox('renderProductHeart', dataFilter);
     });
+
+    $filterBox.on('filter-box-get-id-clear', function (event, data) {
+        const arrIdNew = state.arrId.filter((item) => item !== data);
+        state.arrId = arrIdNew;
+
+        let dataFilter  = filterData(state.items);
+        $filterBox.FilterBox('renderProductHeart', dataFilter);
+    });
+
+    function filterData(data) { 
+        return data.filter( (item, i) => {
+            return state.arrId.indexOf(item.id) !== -1;
+        });
+    }
 
     function callApiListing(param) {
         const url = 'http://localhost:5500/get-data';
@@ -49,6 +64,11 @@ $(function () {
     function handleCallApiSucces(res) {
         state.items = res.items;
         $wrapperSlider.listProduct('render', res.items);
+
+        if (!state.isInitarticle) {
+            $aricle.ListArchive('render', res.articles);
+            state.isInitarticle = true;
+        }
     }
 
     function handleCallApiFail(err) {

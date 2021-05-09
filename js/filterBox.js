@@ -20,7 +20,8 @@
 
   const EVENTNAME = {
     filterChange: 'product-filter-change',
-    tabChange: 'product-tab-change'
+    tabChange: 'product-tab-change',
+    idClear: 'filter-box-get-id-clear'
   }
 
   function FilterBox($el, options) {
@@ -31,6 +32,9 @@
     _self.$searchTitle = _self.$el.find('.js-search-title');
     _self.$chooseGender = _self.$el.find('.js-choose-gender input[type="checkbox"]');
     _self.$listHeartProduct = _self.$el.find('.js-list-heart-product');
+    _self.$countHeart = _self.$el.find('.js-heart-count');
+
+    _self.count = 0;
 
     _self.$searchTitle.on('input propertychange', handleChangeInputSearch);
 
@@ -62,12 +66,14 @@
 
     FilterBox.prototype.renderProductHeart = function (data) {
       const _self = this;
+      _self.count = data.length;
 
-      if (data.length <=0) {
-        // _self.$listHeartProduct.append('<h3>No Product</h3>');
+      if (data.length === 0) {
+        _self.$listHeartProduct.append('<h3>No Product Heart</h3>');
+        _self.$countHeart.html(0);
       } else {
         const temple = data.reduce((str, item, i) => {
-          str += `<div class="heart-item">
+          str += `<div class="heart-item" data-id='${item.id}'>
                             <div class="heart-item__img">
                               <img src="./image/${item.image}" alt="">
                             </div>
@@ -79,8 +85,19 @@
                         </div>`;
           return str;
         }, '');
-
+  
+        _self.$countHeart.html(_self.count);
+  
         _self.$listHeartProduct.html(temple);
+  
+        const $clearHeart =  _self.$listHeartProduct.find('.js-clear-heart');
+  
+        $clearHeart.on('click', function () { 
+          $(this).closest('.heart-item').remove(); 
+      
+          const idClear = $(this).closest('.heart-item').data('id');
+          _self.$el.trigger(EVENTNAME.idClear, idClear);
+        });
       }
     }
   }

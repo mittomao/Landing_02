@@ -254,10 +254,79 @@
                         category: 'shoes',
                         gender: 'man'
                     }
-                ]
+                ],
+                articles: {
+                    new: [
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        },
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        },
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        }
+                    ],
+                    best: [
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        },
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        },
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        }
+                    ],
+                    archive: [
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        },
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        },
+                        {
+                            link:"#",
+                            image: "article-1.jpg",
+                            dateTimes: "Sun May 09 2021 09:49:47 GMT+0700",
+                            title: "The Best Fashion Instagram of the Week",
+                            description: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, eligendi, ad necessitatibus quae itaque, eius consequuntur debitis sequi accusamus ab dolorem tempora voluptatum officiis blanditiis. Consequatur minima quae ipsam et."
+                        }
+                    ]
+                }
             }
-
-            console.log('Param', param);
 
             let rs;
 
@@ -291,8 +360,6 @@
                         return item.category.indexOf(param.category) !==-1;
                     });
                 }
-
-                console.log(rs);
                 
                 return {...result,items: rs};
             }   
