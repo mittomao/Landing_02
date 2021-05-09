@@ -579,14 +579,29 @@ body {
 .wrapper__slider .slide-item--shoes {
   background: linear-gradient(transparent, #ef5777, #0be881);
 }
-.wrapper__slider .slide-item h5.title {
+.wrapper__slider .slide-item .title {
   position: absolute;
-  top: -15px;
+  top: -50px;
   left: 50%;
   transform: translateX(-50%);
+  transition: 0.5s;
+}
+.wrapper__slider .slide-item .title h5 {
   color: 14px;
   font-weight: 600;
-  transition: 0.5s;
+  position: relative;
+  color: #ffffff;
+}
+.wrapper__slider .slide-item .title::before {
+  content: "";
+  position: absolute;
+  top: -15px;
+  right: -30px;
+  bottom: -15px;
+  left: -30px;
+  background-image: url(./../image//khung-1.png);
+  background-size: cover;
+  background-position: center;
 }
 .wrapper__slider .slide-item:not(.slick-active) {
   opacity: 0.2;
@@ -724,7 +739,7 @@ body {
   -webkit-transform: scale(1);
   transform: scale(1);
 }
-.wrapper__slider .slide-item:hover h5.title {
+.wrapper__slider .slide-item:hover .title {
   top: 15px;
 }
 .wrapper__slider .slide-item:hover .interactive {

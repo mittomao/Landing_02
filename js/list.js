@@ -38,7 +38,9 @@
                                 <span class="old">${item.price.old}$</span>
                                 <span class="new">${item.price.new}$</span>
                             </div>
-                            <h5 class='title'>${item.title}</h5>
+                            <div class="title">
+                                <h5>${item.title}</h5>
+                            </div>
                             <img src="./image/${item.image}" alt="Image">
                             <div class="interactive">
                             <a href="#" class='js-button-heart'>
