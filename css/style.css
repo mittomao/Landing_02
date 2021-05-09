@@ -296,8 +296,17 @@ body {
   display: flex;
   align-items: center;
 }
+.wrapper__navbar .box-sex.is-female span.image-female {
+  opacity: 1;
+}
+.wrapper__navbar .box-sex.is-female span.image-man {
+  opacity: 0.1;
+}
 .wrapper__navbar .box-sex span {
   margin: 0 10px;
+}
+.wrapper__navbar .box-sex span.image-female {
+  opacity: 0.1;
 }
 .wrapper__navbar .box-sex input[type=checkbox] {
   height: 0;
@@ -466,26 +475,29 @@ body {
 }
 .wrapper__navbar .box-setting .dropdown-heart {
   min-width: 300px;
-  padding: 15px;
+  padding: 0;
+}
+.wrapper__navbar .box-setting .list-heart-product {
   max-height: 350px;
   overflow-y: scroll;
+  padding: 15px;
 }
-.wrapper__navbar .box-setting .dropdown-heart::-webkit-scrollbar-track {
+.wrapper__navbar .box-setting .list-heart-product::-webkit-scrollbar-track {
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #f5f5f5;
   border-radius: 10px;
 }
-.wrapper__navbar .box-setting .dropdown-heart::-webkit-scrollbar {
+.wrapper__navbar .box-setting .list-heart-product::-webkit-scrollbar {
   width: 3px;
   background-color: #f5f5f5;
 }
-.wrapper__navbar .box-setting .dropdown-heart::-webkit-scrollbar-thumb {
+.wrapper__navbar .box-setting .list-heart-product::-webkit-scrollbar-thumb {
   border-radius: 10px;
   background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0.44, #7a99d9), color-stop(0.72, #497dbd), color-stop(0.86, #1c3a94));
 }
 .wrapper__navbar .box-setting .heart-item {
   width: 100%;
-  padding: 15px 0;
+  padding: 10px 0;
   display: flex;
   align-items: center;
 }

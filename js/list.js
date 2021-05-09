@@ -19,8 +19,8 @@
 }(window, function ($) {
 
     const EVENTNAME = {
-        getIdProductHeart: 'get-id-product-heart',
-      }
+        getIdProduct: 'get-id-product-heart',
+    }
 
     function ListProduct($el, options) {
         const _self = this;
@@ -46,7 +46,7 @@
                             <a href="#" class='js-button-heart'>
                                 <i class="fa fa-heart" aria-hidden="true"></i>
                             </a>
-                            <a href="#">
+                            <a href="#" class='js-button-cart'>
                                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                             </a>
                             </div>
@@ -58,19 +58,19 @@
             }, '');
 
             _self.$el.html(temple);
-           
+
             _self.$el.slick({
                 slidesToScroll: 1,
                 iinfinite: true,
                 variableWidth: true
-            });    
+            });
 
             hanldeChageOptionSlide();
 
             const $buttonHearts = _self.$el.find('.js-button-heart');
-            const $listSlides = _self.$el.find('.js-slide-item');
+            const $buttonCarts = _self.$el.find('.js-button-cart');
 
-            $buttonHearts.on('click', function (e) { 
+            $buttonHearts.on('click', function (e) {
                 e.preventDefault();
 
                 const $slideItem = $(this).closest('.slide-item');
@@ -79,16 +79,24 @@
 
                 let idProduct = $slideItem.data('id');
 
-                _self.$el.trigger(EVENTNAME.getIdProductHeart, { idProduct: idProduct });
+                _self.$el.trigger(EVENTNAME.getIdProduct, { idProduct: idProduct, type: 'heart' });
 
                 setTimeout(() => {
                     $slideItem.find('span.test').remove();
                 }, 1000);
             });
-           
+
+            $buttonCarts.on('click', function (e) {
+                e.preventDefault();
+                
+                const $slideItem = $(this).closest('.slide-item');
+                let idProduct = $slideItem.data('id');
+                _self.$el.trigger(EVENTNAME.getIdProduct, { idProduct: idProduct, type: 'cart'});
+            });
+
         }
 
-        ListProduct.prototype.unSlick = function () { 
+        ListProduct.prototype.unSlick = function () {
             const _self = this;
             _self.$el.slick('unslick');
         }
@@ -118,7 +126,7 @@
         $(window).resize(hanldeChageOptionSlide);
 
         function hanldeChageOptionSlide() {
-            let w =  _self.$el.width();
+            let w = _self.$el.width();
             let slideToShow = Math.floor(w / 360);
 
             _self.$el.slick('slickSetOption', 'slidesToShow', slideToShow, true);

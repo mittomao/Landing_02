@@ -3,18 +3,22 @@ $(function () {
     const $filterBox = $('.js-wrapper-filter');
     const $categoryBox = $('.js-wrapper-categorys');
     const $aricle = $('.js-aricle');
+    const $orderBoxs = $('.js-orders-box');
+
     let state = {
-        arrId: [],
+        arrIdHeart: [],
+        arrIdCart: [],
         items: [],
-        isInitarticle : false
+        isInitarticle: false
     }
 
     $wrapperSlider.listProduct();
     $filterBox.FilterBox();
     $categoryBox.categoryBox();
     $aricle.ListArchive();
+    $orderBoxs.orderBoxs();
 
-    $( "[data-toggle='dropdown']" ).dropdown();
+    $("[data-toggle='dropdown']").dropdown();
 
     $filterBox.on('product-filter-change', function (event, data) {
         $wrapperSlider.listProduct('unSlick');
@@ -27,23 +31,39 @@ $(function () {
     });
 
     $wrapperSlider.on('get-id-product-heart', function (event, data) {
-        state.arrId.push(data.idProduct);
-        let dataFilter  = filterData(state.items);
+        if (data.type === 'heart') {
+            state.arrIdHeart.push(data.idProduct);
+            let dataFilter = filterData(state.items, state.arrIdHeart);
+            $filterBox.FilterBox('renderProductHeart', dataFilter);
+        } else {
+            state.arrIdCart.push(data.idProduct);
+            let dataOrders = mergeDateInArray(filterData(state.items, state.arrIdCart));
 
-        $filterBox.FilterBox('renderProductHeart', dataFilter);
+            console.log('1', dataOrders, state.items);
+            $orderBoxs.orderBoxs('render', dataOrders);
+        }
     });
 
     $filterBox.on('filter-box-get-id-clear', function (event, data) {
-        const arrIdNew = state.arrId.filter((item) => item !== data);
-        state.arrId = arrIdNew;
+        const arrIdNew = state.arrIdHeart.filter((item) => item !== data);
+        state.arrIdHeart = arrIdNew;
 
-        let dataFilter  = filterData(state.items);
+        let dataFilter = filterData(state.items, state.arrIdHeart);
         $filterBox.FilterBox('renderProductHeart', dataFilter);
     });
 
-    function filterData(data) { 
-        return data.filter( (item, i) => {
-            return state.arrId.indexOf(item.id) !== -1;
+    function filterData(data, arrId) {
+        return data.filter((item, i) => {
+            return arrId.indexOf(item.id) !== -1;
+        });
+    }
+
+    function mergeDateInArray(data) {
+        let today = new Date();
+        let dateNow = today.getDate() + '-' + (today.getMonth() + 1) + '-' + today.getFullYear();
+
+        return data.map((item, i) => {
+            return { ...item, dateTimes: dateNow }
         });
     }
 
@@ -54,7 +74,7 @@ $(function () {
         const requestData = {
             gender: gender,
             title: '',
-            category:'',
+            category: '',
             ...param
         }
 

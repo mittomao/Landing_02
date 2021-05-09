@@ -300,8 +300,22 @@ body {
             display: flex;
             align-items: center;
 
+            &.is-female {
+                span.image-female {
+                    opacity: 1;
+                }
+
+                span.image-man {
+                    opacity: .1;
+                }
+            } 
+
             span {
                 margin: 0 10px;
+
+                &.image-female {
+                    opacity: .1;
+                }
             }
 
             input[type="checkbox"] {
@@ -499,9 +513,13 @@ body {
 
             .dropdown-heart {
                 min-width: 300px;
-                padding: $grid-gutter-width / 2;
+                padding: 0;   
+            }
+
+            .list-heart-product {
                 max-height: 350px;
                 overflow-y: scroll;
+                padding: $grid-gutter-width/2;
 
                 &::-webkit-scrollbar-track {
                     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
@@ -525,11 +543,12 @@ body {
                         color-stop(0.86, rgb(28, 58, 148))
                     );
                 }
+
             }
 
             .heart-item {
                 width: 100%;
-                padding: $grid-gutter-width / 2 0;
+                padding: 10px 0;
                 display: flex;
                 align-items: center;
                 

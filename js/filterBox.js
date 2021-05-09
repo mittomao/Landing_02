@@ -47,6 +47,12 @@
 
     function handleChangeGender(e) {
       const param = getFilterInfo();
+
+      if (!_self.$chooseGender.is(':checked')) {
+        _self.$chooseGender.closest('.js-choose-gender').addClass('is-female');
+      } else  {
+        _self.$chooseGender.closest('.js-choose-gender').removeClass('is-female');
+      }
       _self.$el.trigger(EVENTNAME.filterChange, param);
     }
 
