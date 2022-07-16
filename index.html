@@ -25,14 +25,21 @@
 <body>
 
   <div class="wrapper">
-    <div class="wrapper__container">
+    <div class="wrapper__container js-wrapper-container">
       <div class="wrapper__category">
-        <h4 class="logo">
+        <h4 class="logo-header">
           Wainii
           <div class="sub-logo">
             <span>Store</span>
           </div>
         </h4>
+        <div class="box-sex js-choose-gender">
+          <span class="image-female"><img src="./image/category/female.png" alt="Female"></span>
+          <input type="checkbox" id="switchMB" checked />
+          <label for="switch">
+          </label>
+          <span class="image-man"><img src="./image/category/man.png" alt="male"></span>
+        </div>
         <ul class="list-category js-wrapper-categorys">
           <li>
             <a href="#" class="js-category-item" data-category="hat">
@@ -84,9 +91,23 @@
             <span>Logout</span>
           </a>
         </div>
+        <div class="close-box js-close-category">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </div>
       </div>
       <div class="wrapper__content">
         <div class="wrapper__navbar js-wrapper-filter">
+          <div class="box-logo-mb">
+            <h4 class="logo-header">
+              Wainii
+              <div class="sub-logo">
+                <span>Store</span>
+              </div>
+            </h4>
+          </div>
+          <div class="box-category-mb js-show-category">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+          </div>
           <div class="box-sex js-choose-gender">
             <span class="image-female"><img src="./image/category/female.png" alt="Female"></span>
             <input type="checkbox" id="switch" checked />

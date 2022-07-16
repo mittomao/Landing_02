@@ -37,6 +37,7 @@ $media-max-xxxl: '(max-width:#{$break-point-1600 - 1})';
 $media-mobile : '( max-width: 768px )';
 
 $grid-gutter-width: 30px;
+$grid-gutter-width-mb: $grid-gutter-width/2;
 
 .container {
   max-width: 1650px;

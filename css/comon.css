@@ -1,0 +1,22 @@
+.container {
+  max-width: 1650px;
+  width: 86%;
+  margin: 0 auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+@media (max-width: 1599px) {
+  .container {
+    width: calc(100% - 80px);
+  }
+}
+
+@media (max-width: 1439px) {
+  .container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/*# sourceMappingURL=comon.css.map */

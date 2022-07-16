@@ -1,9 +1,12 @@
 $(function () {
+    const $wrapperContainer = $('.js-wrapper-container');
     const $wrapperSlider = $('.js-wrapper-slider');
     const $filterBox = $('.js-wrapper-filter');
     const $categoryBox = $('.js-wrapper-categorys');
     const $aricle = $('.js-aricle');
     const $orderBoxs = $('.js-orders-box');
+    const $showCategoryMb = $('.js-show-category');
+    const $closeCategoryMb = $('.js-close-category');
 
     let state = {
         arrIdHeart: [],
@@ -19,6 +22,16 @@ $(function () {
     $orderBoxs.orderBoxs();
 
     $("[data-toggle='dropdown']").dropdown();
+
+    $showCategoryMb.on('click', function () {
+        $wrapperContainer.addClass('has-category');
+    })
+
+    $closeCategoryMb.on('click', function () {
+        $wrapperContainer.removeClass('has-category');
+    })
+
+
 
     $filterBox.on('product-filter-change', function (event, data) {
         $wrapperSlider.listProduct('unSlick');
